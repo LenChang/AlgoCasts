@@ -5,27 +5,32 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+/**
+ * Pesudo
+ * 1. convert str to arr
+ * 2. create a hash map which record {[char:string]: count}
+ * 3. return the biggest value of key
+ */
 function maxChar(str) {
-  const charMap = {};
-  let max = 0;
-  let maxChar = '';
+  const map = str.split("").reduce((acc, curr) => {
+    acc[curr] = acc[curr] + 1 || 1;
+    return acc;
+  }, {});
 
-  for (let char of str) {
-    if (charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
-  }
+  // for..in
+  //   let maxChar = "";
+  //   let max = 0;
+  //   for (let idx in map) {
+  //     if (map[idx] > max) {
+  //       max = map[idx];
+  //       maxChar = idx;
+  //     }
+  //   }
+  //   return maxChar;
 
-  for (let char in charMap) {
-    if (charMap[char] > max) {
-      max = charMap[char];
-      maxChar = char;
-    }
-  }
-
-  return maxChar;
+  return Object.keys(map).reduce((acc, curr) =>
+    map[curr] > map[acc] ? curr : acc
+  );
 }
 
 module.exports = maxChar;
