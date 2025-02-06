@@ -8,6 +8,15 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
+/** Peudo Code
+* 1-a. Create a flag, the initial value is 0
+* 1-b. Create a array named finalResult for final result
+* 1-c. Create a array named tmpChunk for array chunk
+* 2. loop the array from index 0, pop the element to tmpChunk and make the flag = flag +1
+* 3. when flag === size, inject tmpChunk into the final result and reset flag and tmpChunk
+* 4. when  index === array.length -1, inject tmpChunk into the final result
+* 5. return final result
+* */
 function chunk(array, size) {
   const chunked = [];
   let index = 0;
