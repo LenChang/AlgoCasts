@@ -29,20 +29,25 @@ function chunk(array, size) {
   return chunked;
 }
 
-module.exports = chunk;
+/* --- Original One ---
+function chunk(array, size) {
+     let flag = 0;
+     let finalResult = [];
+     let tmpChunk = [];
+     
+     array.forEach((x,idx)=>{
+         tmpChunk.push(x);
+         flag++;
+         
+         if(flag === size || idx === array.length - 1){
+             finalResult.push(tmpChunk);
+             tmpChunk = [];
+             flag = 0;
+         }
+     })
+     
+     return finalResult;
+}
+*/
 
-// function chunk(array, size) {
-//   const chunked = [];
-//
-//   for (let element of array) {
-//     const last = chunked[chunked.length - 1];
-//
-//     if (!last || last.length === size) {
-//       chunked.push([element]);
-//     } else {
-//       last.push(element);
-//     }
-//   }
-//
-//   return chunked;
-// }
+module.exports = chunk;
