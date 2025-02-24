@@ -23,12 +23,18 @@ function capitalize(str) {
 
 module.exports = capitalize;
 
-// function capitalize(str) {
-//   const words = [];
-//
-//   for (let word of str.split(' ')) {
-//     words.push(word[0].toUpperCase() + word.slice(1));
-//   }
-//
-//   return words.join(' ');
-// }
+/*-- Pesudo Code --
+    1. Split string to array with substring by space ' '
+    2. Do for-loop
+        2-a. Get the first word (FirstW) and the rest of each substring
+        2-b. Change the FirstW to the upper case
+        2-c. Append the updated FirstW on the head of the rest
+    3. Join the array by space ' '
+*/
+//function capitalize(str) {
+//    return str.split(' ').map(x=>{
+//        const firstW = x[0].toUpperCase();
+//        const rest = x.slice(1);
+//        return firstW + rest;
+//    }).join(' ')
+//}
