@@ -23,29 +23,26 @@ function cleanString(str) {
 
 module.exports = anagrams;
 
-// function anagrams(stringA, stringB) {
-//   const aCharMap = buildCharMap(stringA);
-//   const bCharMap = buildCharMap(stringB);
-//
-//   if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
-//     return false;
-//   }
-//
-//   for (let char in aCharMap) {
-//     if (aCharMap[char] !== bCharMap[char]) {
-//       return false;
-//     }
-//   }
-//
-//   return true;
-// }
-//
-// function buildCharMap(str) {
-//   const charMap = {};
-//
-//   for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
-//     charMap[char] = charMap[char] + 1 || 1;
-//   }
-//
-//   return charMap;
-// }
+/*-- Solution 2 --
+function anagrams(stringA, stringB) {
+    const mapA = stringA.replace(/\W/,'').split('').reduce((acc,curr)=>{
+        acc[curr] = acc[curr] ? acc[curr] + 1: 0;
+        return acc
+    },{})
+    
+    const mapB = stringB.replace(/\W/,'').split('').reduce((acc,curr)=>{
+        acc[curr] = acc[curr] ? acc[curr] + 1: 0;
+        return acc
+    },{})
+    
+    
+    if (Object.keys(mapA).length !== Object.keys(mapB).length) return false;
+    
+    for(const key in mapA){
+        if(mapA[key] !== mapB[key]) return false
+    }
+    
+    return true;
+}
+*/
+
